@@ -6,18 +6,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let item of users">
-      <div class="col-sm-8 col-lg-6 m-auto mt-2">
-        <div class="card w-100 p-1">
-            <div class="card-body">
-              <h3 class="card-title">{{item.name}}</h3>
-              <p class="card-text">{{item.email}}</p>
-              <h5 class="card-title">Autor: {{item.handle}}   Genero: {{item.user}}</h5>
-            </div>
-        </div>
-      </div>
+<ion-content fullscreen class="ion-padding ion-text-center" mode="ios">
+  <ion-list mode="ios">
+    <ion-item *ngFor="let item of users" class="card-center">
+      <ion-card mode="ios">
+        <ion-card-header>
+          <ion-card-title color="primary" class="ion-padding ion-text-center">{{item.name}}</ion-card-title>
+          <ion-card-subtitle color="secondary" >{{item.email}}</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>Autor: {{item.handle}}   Genero: {{item.user}}</ion-card-content>
+      </ion-card>
     </ion-item>
   </ion-list>
 </ion-content>
