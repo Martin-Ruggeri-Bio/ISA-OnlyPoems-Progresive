@@ -10,19 +10,19 @@
   <form (ngSubmit)="onSubmit()">
     <ion-item>
       <ion-label position="floating">Usuario</ion-label>
-      <ion-input [(ngModel)]="username" name="username"></ion-input>
+      <ion-input [(ngModel)]="username" name="username" id="input-username"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Contraseña</ion-label>
-      <ion-input [(ngModel)]="password" type="password" name="password"></ion-input>
+      <ion-input [(ngModel)]="password" type="password" name="password" id="input-password"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>Recordarme</ion-label>
-      <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe"></ion-checkbox>
+      <ion-checkbox [(ngModel)]="rememberMe" name="rememberMe" id="checkbox-rememberMe"></ion-checkbox>
     </ion-item>
 
-    <ion-button type="submit" expand="block">Iniciar sesión</ion-button>
+    <ion-button type="submit" expand="block" id="button-login">Iniciar sesión</ion-button>
   </form>
 </ion-content>

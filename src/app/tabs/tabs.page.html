@@ -1,12 +1,12 @@
 <ion-tabs>
 
   <ion-tab-bar slot="bottom">
-    <ion-tab-button *ngIf="isToken" tab="tab1">
+    <ion-tab-button *ngIf="isToken" tab="tab1" id="button-home">
       <ion-icon name="home"></ion-icon>
       <ion-label>Posts</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button *ngIf="isAdmin" tab="tab2">
+    <ion-tab-button *ngIf="isAdmin" tab="tab2" id="button-users">
       <ion-icon name="people"></ion-icon>
       <ion-label>Users</ion-label>
     </ion-tab-button>
@@ -16,7 +16,7 @@
       <ion-label>Login</ion-label>
     </ion-tab-button>
 
-    <ion-tab-button (click)="cerrarSesion()">
+    <ion-tab-button (click)="cerrarSesion()" id="button-logout">
       <ion-icon name="log-out"></ion-icon>
       <ion-label>Logout</ion-label>
     </ion-tab-button>

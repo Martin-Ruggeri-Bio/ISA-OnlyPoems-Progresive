@@ -1,6 +1,7 @@
 import { Component} from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { NavController } from '@ionic/angular';
 
 
 @Component({
@@ -14,19 +15,25 @@ export class Tab3Page {
   password?: string;
   rememberMe = true;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private navCtrl: NavController) { }
 
   onSubmit(){
     console.log('Comprobando credenciales ...')
     this.loginService.login(this.username || '', this.password || '', this.rememberMe).subscribe({
       next: (rta) =>{
-        alert('Login Exitoso');
+        if (!rta || !rta.id_token) {
+          this.loginService.errorLogin();
+          localStorage.removeItem('token');
+          this.navCtrl.navigateRoot('tabs/tab3');
+          return;
+        }
+        this.loginService.exitoLogin();
         // lo guardamos en el local storage al token
-        console.log(rta)
         localStorage.setItem('token', rta.id_token);
         const helper = new JwtHelperService();
         const decodedToken = helper.decodeToken(rta.id_token);
         localStorage.setItem('auth', decodedToken.auth);
+        this.navCtrl.navigateRoot('tabs/tab1');
       }, error: (error) =>{
         console.log('Error:', error)
         //alert('Credenciales Incorrectas')

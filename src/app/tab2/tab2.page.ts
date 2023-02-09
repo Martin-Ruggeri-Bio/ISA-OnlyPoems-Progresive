@@ -32,4 +32,5 @@ export class Tab2Page {
       this.allUsers = data.total;
     })
   }
+  
 }

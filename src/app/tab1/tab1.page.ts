@@ -33,4 +33,5 @@ export class Tab1Page {
       this.allPosts = data.total;
     })
   }
+  
 }
